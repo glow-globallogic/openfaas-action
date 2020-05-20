@@ -1,10 +1,11 @@
-name: 'OpenFaaS CLI CLI Action'
+name: 'OpenFaaS CLI Action'
 description: 'CLI commands to your OpenFaaS Gateway'
 author: 'Denys Vasyliev'
 inputs:
   command:
     description: 'OpenFaaS Command'
     required: true
+    default: 'deploy'
   tls:
     description: 'username for authentication'
     required: false
