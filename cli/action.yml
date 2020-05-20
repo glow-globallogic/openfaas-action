@@ -1,0 +1,27 @@
+name: 'OpenFaaS CLI CLI Action'
+description: 'CLI commands to your OpenFaaS Gateway'
+author: 'Denys Vasyliev'
+inputs:
+  command:
+    description: 'OpenFaaS Command'
+    required: true
+  tls:
+    description: 'username for authentication'
+    required: false
+  options:
+    description: 'commands options'
+    required: true
+  path:
+    description: "Path to stack YAML file"
+    default: "stack.yml"
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'docker://openfaas/faas-cli:0.9.2'
+  args:
+    - 'faas-cli'
+    - '${{ inputs.command }}'
+    - '-f=${{ inputs.path }}'
+    - '${{ inputs.tls }}'
+    - '${{ inputs.options }}'
