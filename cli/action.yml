@@ -6,16 +6,16 @@ inputs:
     description: 'OpenFaaS Command'
     required: true
     default: 'deploy'
-  tls:
-    description: 'username for authentication'
-    required: false
-  options:
-    description: 'commands options'
-    required: true
   path:
     description: "Path to stack YAML file"
     default: "stack.yml"
     required: true
+  options_name:
+    description: 'commands options'
+    required: false
+  options_value:
+    description: 'commands options'
+    required: false
 
 runs:
   using: 'docker'
@@ -24,5 +24,4 @@ runs:
     - 'faas-cli'
     - '${{ inputs.command }}'
     - '-f=${{ inputs.path }}'
-    - '${{ inputs.tls }}'
-    - '${{ inputs.options }}'
+    - '${{ inputs.options_name }}' '${{ inputs.options_value }}'
