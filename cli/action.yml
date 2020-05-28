@@ -10,10 +10,7 @@ inputs:
     description: "Path to stack YAML file"
     default: "stack.yml"
     required: true
-  options_name:
-    description: 'commands options'
-    required: false
-  options_value:
+  options:
     description: 'commands options'
     required: false
 
@@ -24,4 +21,4 @@ runs:
     - 'faas-cli'
     - '${{ inputs.command }}'
     - '-f=${{ inputs.path }}'
-    - '${{ inputs.options_name }}' '${{ inputs.options_value }}'
+    - '${{ inputs.options }}'
