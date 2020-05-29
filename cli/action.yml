@@ -11,7 +11,7 @@ inputs:
     default: "stack.yml"
     required: true
   options:
-    description: 'commands options'
+    description: 'Commands Options'
     required: false
 
 runs:
